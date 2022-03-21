@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tailwinds-image-scanner
+  labels:
+    app: tailwinds-image-scanner
+spec:
+  selector:
+    matchLabels:
+      name: tailwinds-image-scanner
+  template:
+    metadata:
+      labels:
+        name: tailwinds-image-scanner
+    spec:
+      serviceAccountName: tailwinds-sa
+      restartPolicy: Always
+      containers:
+        - name: tailwinds-image-scanner
+          image: tailwindsai/tailwinds-image-scanner:beta-v0.2.1
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu:    100m
+              memory: 250Mi
+            limits:
+              cpu:    1000m
+              memory: 1250Mi
+          env:
+            - name: MY_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: dockersock
+              mountPath: "/var/run/docker.sock"
+      volumes:
+      - name: dockersock
+        hostPath:
+          path: /var/run/docker.sock      
