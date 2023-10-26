@@ -1,0 +1,7 @@
+deployment:
+  image: "hello-world"
+  tag: "latest"
+name: java-image
+service:
+  type: LoadBalancer
+  port: 3080

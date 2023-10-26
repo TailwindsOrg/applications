@@ -1,0 +1,7 @@
+deployment:
+  image: "abinaya251/helloworld"
+  tag: "latest"
+name: python-image
+service:
+  type: LoadBalancer
+  port: 3080

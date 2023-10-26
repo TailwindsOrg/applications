@@ -1,0 +1,17 @@
+nameOverride: bg-deploy
+
+green:
+  appVersion: 1.0
+  image_tag: 1.22
+  enabled: false
+  timestamp: "2022-05-01 00:00:00"
+
+blue:
+  appVersion: 1.0
+  image_tag: 1.22
+  enabled: true
+  timestamp: "2022-05-01 00:00:00"
+
+productionSlot: blue
+
+replicaCount: 1
