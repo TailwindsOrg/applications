@@ -1,0 +1,20 @@
+token:
+  apiToken: ZHQwYzAxLlJGUVZKSllUTU9PQjVJMzVSUFlENklTVS5YWFBLTzVLUExITjNDTEpSVjZOVDc2QkFNWVZKNE40R0dSNlNKQVJVQUFJTlhYVlA0Uk40T1g1SEZEQU00QVpR
+  dataIngestToken: ZHQwYzAxLlY2VjJIS1FWWUxNRFpWR1E1NzVMWjZHUS5TUFVaUTJTNEJZVjRTRVFCUU1BM1Y3UTZXMkFZWVU0WDI2WFAzU082S0tUU0ZLUlBMMkYyRUxST1FSN1JIWFk1
+
+metadata:
+  name: dev-blue-eks-cluster
+
+DynaKube:
+  spec:
+    # Dynatrace apiUrl including the `/api` path at the end
+    apiUrl: https://dob968.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-6441e9e0116d/api
+
+    # name of secret holding `apiToken` and `paasToken`
+    #tokens: dev-kubernetes
+
+    # Sets Network Zone for OneAgent and ActiveGate pods
+    networkZone: dev-blue-eks-cluster
+    # Set activation group for ActiveGate
+    activeGate:
+      group: dev-blue-eks-cluster
