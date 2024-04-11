@@ -8,7 +8,7 @@ metadata:
 DynaKube:
   spec:
     # Dynatrace apiUrl including the `/api` path at the end
-    apiUrl: https://dob968.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-6441e9e0116d/api
+    apiUrl: https://78787.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-6441e9e0116d/api
 
     # name of secret holding `apiToken` and `paasToken`
     #tokens: dev-kubernetes
