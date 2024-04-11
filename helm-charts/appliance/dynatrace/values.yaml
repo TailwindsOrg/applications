@@ -1,6 +1,6 @@
 token:
-  apiToken: ZHQwYzAxLlJGUVZKSllUTU9PQjVJMzVSUFlENklTVS5YWFBLTzVLUExITjNDTEp
-  dataIngestToken: ZHQwYzAxLlY2VjJIS1FWWUxNRFpWR1E1NzVMWjZHUS5TUFVaUTJTNEJZ
+  apiToken: ZHQwYzAxLlI1V1ZLTDdNNU9UV0tYVk9CRE5RTlJIUS5HVU1SR0NBRVhNRFc2RjVBRDY1VzQyWVhBTDJYRFNBRURCV0s1N0czWjVPN0FMSEFTSzNIVkxERk9NMk5MUk82
+  dataIngestToken: ZHQwYzAxLjI2WVNPSVZCVzdZTEFCNUMzVE5MTlBYVS5SRkVVN1ZRT0k2Wk5RU1FQVFpCWjNYSzJGVDdBUVVaTUlTRTRaSkIzSjJET1NKVUVMRVJMNlVaRVlETUdFNFE2
 
 metadata:
   name: dev-blue-eks-cluster
@@ -8,7 +8,7 @@ metadata:
 DynaKube:
   spec:
     # Dynatrace apiUrl including the `/api` path at the end
-    apiUrl: https://78787.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-6441e9e0116d/api
+    apiUrl: https://78787.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-64r941e9e01r9r916d/api
 
     # name of secret holding `apiToken` and `paasToken`
     #tokens: dev-kubernetes
