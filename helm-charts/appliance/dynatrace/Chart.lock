@@ -1,9 +1,0 @@
-dependencies:
-- name: dynatrace-operator
-  repository: ""
-  version: 1.0.0
-- name: dynakube
-  repository: ""
-  version: 1.0.0
-digest: sha256:84fb8b9c6ca0a0de27e3c6fe686bb20ba509b389b7a728f33b746a6d0fb4eda7
-generated: "2024-04-12T18:24:48.2804194+05:30"

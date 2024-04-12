@@ -1,82 +1,20 @@
 token:
-  apiToken: ""
-  dataIngestToken: ""
+  apiToken: ZHQwYzAxLlI1V1ZLTDdNNU9UV0tYVk9CRE5RTlJIUS5HVU1SR0NBRVhNRFc2RjVBRDY1VzQyWVhBTDJYRFNBRURCV0s1N0czWjVPN0FMSEFTSzNIVkxERk9NMk5MUk82
+  dataIngestToken: ZHQwYzAxLjI2WVNPSVZCVzdZTEFCNUMzVE5MTlBYVS5SRkVVN1ZRT0k2Wk5RU1FQVFpCWjNYSzJGVDdBUVVaTUlTRTRaSkIzSjJET1NKVUVMRVJMNlVaRVlETUdFNFE2
 
-replicaCount: 1
+metadata:
+  name: dev-blue-eks-cluster
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+DynaKube:
+  spec:
+    # Dynatrace apiUrl including the `/api` path at the end
+    apiUrl: https://78787.dynatrace-managed.com/e/c338b4d2-86ea-4318-916f-64r941e9e01r9r916d/api
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+    # name of secret holding `apiToken` and `paasToken`
+    #tokens: dev-kubernetes
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-podAnnotations: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
-service:
-  type: ClusterIP
-  port: 80
-
-ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+    # Sets Network Zone for OneAgent and ActiveGate pods
+    networkZone: dev-blue-eks-cluster
+    # Set activation group for ActiveGate
+    activeGate:
+      group: dev-blue-eks-cluster
