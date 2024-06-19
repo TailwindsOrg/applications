@@ -1,0 +1,45 @@
+kubernetesClusterDomain: cluster.local
+mdAiClientDeployment:
+  mdAiClient:
+    image:
+      repository: tailwindsindia.azurecr.io/majordomo-ai-client
+      tag: latest
+    imagePullPolicy: Always
+  replicas: 1
+mdAiClientSvc:
+  ports:
+  - name: port-1
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  - name: port-2
+    port: 8501
+    protocol: TCP
+    targetPort: 8501
+  type: ClusterIP
+mdAiCm:
+  langfuseHost: http://langfuse:3000
+  langfusePublicKey: pk-lf-c32339f6-b9d5-472a-a544-d0dbf48c1110
+  langfuseSecretKey: sk-lf-05180beb-2548-4981-9c0b-d2686939c8e5
+  majordomoAiClientUrl: http://md-ai-client-svc:8000
+  majordomoAiControllerUrl: http://md-ai-controller-svc:8000
+  mongodbUrl: mongodb://my-mongodb-mongodb:27017
+  sqlDatabaseUrl: postgres://postgres:postgres@langfuse-postgresql:5432
+mdAiControllerDeployment:
+  mdAiController:
+    image:
+      repository: tailwindsindia.azurecr.io/majordomo-ai-controller
+      tag: latest
+    imagePullPolicy: Always
+  replicas: 1
+mdAiControllerSvc:
+  ports:
+  - name: port-1
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  - name: port-2
+    port: 8501
+    protocol: TCP
+    targetPort: 8501
+  type: ClusterIP
