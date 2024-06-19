@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rag-chart.fullname" . }}-md-ai-client-deployment
+  labels:
+  {{- include "rag-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.mdAiClientDeployment.replicas }}
+  selector:
+    matchLabels:
+      app: md-ai-client
+    {{- include "rag-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: md-ai-client
+      {{- include "rag-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        envFrom:
+        - configMapRef:
+            name: {{ include "rag-chart.fullname" . }}-md-ai-cm
+        image: {{ .Values.mdAiClientDeployment.mdAiClient.image.repository }}:{{ .Values.mdAiClientDeployment.mdAiClient.image.tag
+          | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.mdAiClientDeployment.mdAiClient.imagePullPolicy }}
+        name: md-ai-client
+        ports:
+        - containerPort: 8000
+        - containerPort: 8501
+        resources: {}
+        volumeMounts:
+        - mountPath: /tmp/docs
+          name: docs-volume
+      imagePullSecrets:
+      - name: acr-secret
+      volumes:
+      - hostPath:
+          path: /tmp/docs
+          type: DirectoryOrCreate
+        name: docs-volume

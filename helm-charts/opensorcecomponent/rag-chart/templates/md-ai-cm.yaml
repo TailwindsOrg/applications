@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "rag-chart.fullname" . }}-md-ai-cm
+  labels:
+  {{- include "rag-chart.labels" . | nindent 4 }}
+data:
+  LANGFUSE_HOST: {{ .Values.mdAiCm.langfuseHost | quote }}
+  LANGFUSE_PUBLIC_KEY: {{ .Values.mdAiCm.langfusePublicKey | quote }}
+  LANGFUSE_SECRET_KEY: {{ .Values.mdAiCm.langfuseSecretKey | quote }}
+  MAJORDOMO_AI_CLIENT_URL: {{ .Values.mdAiCm.majordomoAiClientUrl | quote }}
+  MAJORDOMO_AI_CONTROLLER_URL: {{ .Values.mdAiCm.majordomoAiControllerUrl | quote
+    }}
+  MONGODB_URL: {{ .Values.mdAiCm.mongodbUrl | quote }}
+  SQL_DATABASE_URL: {{ .Values.mdAiCm.sqlDatabaseUrl | quote }}
