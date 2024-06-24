@@ -18,12 +18,9 @@ mdAiClientSvc:
     targetPort: 8501
   type: ClusterIP
 mdAiCm:
-  langfuseHost: http://langfuse:3000
-  langfusePublicKey: pk-lf-c32339f6-b9d5-472a-a544-d0dbf48c1110
-  langfuseSecretKey: sk-lf-05180beb-2548-4981-9c0b-d2686939c8e5
-  majordomoAiClientUrl: http://md-ai-client-svc:8000
-  majordomoAiControllerUrl: http://md-ai-controller-svc:8000
-  mongodbUrl: mongodb://my-mongodb-mongodb:27017
+  majordomoAiClientUrl: http://rag-chart-md-ai-client-svc:8000
+  majordomoAiControllerUrl: http://rag-chart-md-ai-controller-svc:8000
+  mongodbUrl: mongodb://mongodb:27017
   sqlDatabaseUrl: postgres://postgres:postgres@langfuse-postgresql:5432
 mdAiControllerDeployment:
   mdAiController:
